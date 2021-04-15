@@ -1,0 +1,5 @@
+https://www.raspberrypi.org/documentation/pico/getting-started/
+https://botland.com.pl/raspberry-pi-pico/18767-raspberry-pi-pico-rp2040-arm-cortex-m0-0617588405587.html
+https://forbot.pl/blog/premiera-raspberry-pi-pico-za-4-z-nowym-ukladem-rp2040-id46800
+https://github.com/raspberrypi/micropython
+
