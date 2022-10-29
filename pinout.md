@@ -1,15 +1,15 @@
 | APP | third | second | main |  pin 	|   	| pin  	| main  | second | third| APP |
 |---	|---	|---	|---  	|---	|---	|---	|---    |---    |---    |---    |
-| BMP280  	|   	|  SDA 	| GP0  	| 1  	|   	| 40  | VBUS  	|    	|    	|    	|
-|  BMP280 	|   	| SCL| GP0  	| 2  	|   	| 39  | VSYS  	|    	|    	|    	|
-|   	|   	|   	| GND 	| 3  	|   	| 38  | GND    	|    	|    	|    	|
-|   	|   	|   	| GP2  	| 4  	|   	| 37  | 3V3_EN  |    	|    	|    	|
+| BMP280  	|   	|  SDA0 	| GP0  	| 1  	|   	| 40  | VBUS  	|    	|    	|    	|
+|  BMP280 	|   	| SCL0| GP0  	| 2  	|   	| 39  | VSYS  	|    	|    	|    	|
+|   	|   	|SDA1| GND 	| 3  	|   	| 38  | GND    	|    	|    	|    	|
+|   	|   	|SCK1	| GP2  	| 4  	|   	| 37  | 3V3_EN  |    	|    	|    	|
 |   	|   	|   	| GP3  	| 5  	|   	| 36  | 3V3(OUT)|    	|    	|    	|
-|   	|   	|   	| GP4 	| 6 	|   	| 35  | ADC_REF |    	|    	|    	|
-|   	|   	|   	| GP5  	| 7 	|   	| 34  | GP28  	|  ADC2 |    |      |
+| XBEE 	|   	|UART1-T| GP4 	| 6 	|   	| 35  | ADC_REF |    	|    	|    	|
+| XBEE 	|   	|UART1-R| GP5  	| 7 	|   	| 34  | GP28  	|  ADC2 |    |BATT|
 |   	|   	|   	| GND  	| 8     |   	| 33  | GND  	| AGND  |    |    |
-|   	|   	|   	| GP6 	| 9 	|   	| 32  | GP27   	| ADC1  |    |    |
-|   	|   	|   	| GP7  	| 10 	|   	| 31  | GP26  	| ADC0	|    	| BATT   	|
+|   	|   	|   	| GP6 	| 9 	|   	| 32  | GP27   	| ADC1  |    |SERVO|
+|   	|   	|   	| GP7  	| 10 	|   	| 31  | GP26  	| ADC0	|    	|SERVO|
 |   	|   	|   	| GP8  	| 11	|   	| 30  | RUN  	|    	|    	|    	|
 |   	|   	|   	| GP9 	| 12	|   	| 29  | GP22   	|    	|    	|    	|
 |   	|   	|   	| GND  	| 13 	|   	| 28  | GND  	|    	|    	|    	|
