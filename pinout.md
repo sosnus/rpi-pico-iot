@@ -1,15 +1,15 @@
 | APP | third | second | main |  pin 	|   	| pin  	| main  | second | third| APP |
 |---	|---	|---	|---  	|---	|---	|---	|---    |---    |---    |---    |
-|   	|   	|   	| GP0  	| 1  	|   	| 40  | VBUS  	|    	|    	|    	|
-|   	|   	|   	| GP0  	| 2  	|   	| 39  | VSYS  	|    	|    	|    	|
+| BMP280  	|   	|  SDA 	| GP0  	| 1  	|   	| 40  | VBUS  	|    	|    	|    	|
+|  BMP280 	|   	| SCL| GP0  	| 2  	|   	| 39  | VSYS  	|    	|    	|    	|
 |   	|   	|   	| GND 	| 3  	|   	| 38  | GND    	|    	|    	|    	|
 |   	|   	|   	| GP2  	| 4  	|   	| 37  | 3V3_EN  |    	|    	|    	|
 |   	|   	|   	| GP3  	| 5  	|   	| 36  | 3V3(OUT)|    	|    	|    	|
 |   	|   	|   	| GP4 	| 6 	|   	| 35  | ADC_REF |    	|    	|    	|
-|   	|   	|   	| GP5  	| 7 	|   	| 34  | GP28  	|  ADC2 |  ADC2 |  ADC2 |
-|   	|   	|   	| GND  	| 8     |   	| 33  | GND  	| ADC1  | ADC1  | ADC1  |
-|   	|   	|   	| GP6 	| 9 	|   	| 32  | GP27   	| ADC0  | ADC0  | ADC0  |
-|   	|   	|   	| GP7  	| 10 	|   	| 31  | GP26  	|    	|    	|    	|
+|   	|   	|   	| GP5  	| 7 	|   	| 34  | GP28  	|  ADC2 |    |      |
+|   	|   	|   	| GND  	| 8     |   	| 33  | GND  	| AGND  |    |    |
+|   	|   	|   	| GP6 	| 9 	|   	| 32  | GP27   	| ADC1  |    |    |
+|   	|   	|   	| GP7  	| 10 	|   	| 31  | GP26  	| ADC0	|    	| BATT   	|
 |   	|   	|   	| GP8  	| 11	|   	| 30  | RUN  	|    	|    	|    	|
 |   	|   	|   	| GP9 	| 12	|   	| 29  | GP22   	|    	|    	|    	|
 |   	|   	|   	| GND  	| 13 	|   	| 28  | GND  	|    	|    	|    	|
