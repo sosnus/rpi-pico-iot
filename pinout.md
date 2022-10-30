@@ -1,7 +1,7 @@
 | APP | third | second | main |  pin 	|   	| pin  	| main  | second | third| APP |
 |---	|---	|---	|---  	|---	|---	|---	|---    |---    |---    |---    |
 | BMP280  	|   	|  SDA0 	| GP0  	| 1  	|   	| 40  | VBUS  	|    	|    	|    	|
-|  BMP280 	|   	| SCL0| GP0  	| 2  	|   	| 39  | VSYS  	|    	|    	|    	|
+|  BMP280 	|   	| SCL0| GP0  	| 2  	|   	| 39  | VSYS  	|VSYS|VIN (2-5V)|    	|
 |   	|   	|SDA1| GND 	| 3  	|   	| 38  | GND    	|    	|    	|    	|
 |   	|   	|SCK1	| GP2  	| 4  	|   	| 37  | 3V3_EN  |    	|    	|    	|
 |   	|   	|   	| GP3  	| 5  	|   	| 36  | 3V3(OUT)|    	|    	|    	|
