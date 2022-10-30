@@ -1,10 +1,10 @@
 | APP | third | second | main |  pin 	|   	| pin  	| main  | second | third| APP |
 |---	|---	|---	|---  	|---	|---	|---	|---    |---    |---    |---    |
-| BMP280  	|   	|  SDA0 	| GP0  	| 1  	|   	| 40  | VBUS  	|    	|    	|    	|
+| BMP280  	|   	|  SDA0 	| GP0  	| 1  	|   	| 40  | VBUS  	|VUSB|5V    	|    	|
 |  BMP280 	|   	| SCL0| GP0  	| 2  	|   	| 39  | VSYS  	|VSYS|VIN (2-5V)|    	|
 |   	|   	|SDA1| GND 	| 3  	|   	| 38  | GND    	|    	|    	|    	|
 |   	|   	|SCK1	| GP2  	| 4  	|   	| 37  | 3V3_EN  |    	|    	|    	|
-|   	|   	|   	| GP3  	| 5  	|   	| 36  | 3V3(OUT)|    	|    	|    	|
+|   	|   	|   	| GP3  	| 5  	|   	| 36  | 3V3(OUT)|    	|3v3 Przetw|    	|
 | XBEE 	|   	|UART1-T| GP4 	| 6 	|   	| 35  | ADC_REF |    	|    	|    	|
 | XBEE 	|   	|UART1-R| GP5  	| 7 	|   	| 34  | GP28  	|  ADC2 |    |BATT|
 |   	|   	|   	| GND  	| 8     |   	| 33  | GND  	| AGND  |    |    |
