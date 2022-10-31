@@ -277,6 +277,15 @@ class BME280:
     return "{}.{:02d}hPa".format(pi, pd)
 
   @property
+  def pressureDouble(self):
+    "Return the temperature in hPa."
+    p = self.read_pressure() // 256
+    pi = p // 100
+    pd = p - pi * 100
+    pa = pi+(pd/100.0)
+    return pa
+
+  @property
   def humidity(self):
     "Return the humidity in percent."
     h = self.read_humidity()
