@@ -17,7 +17,21 @@ def init():
     
 def loop():
     while True:
-        r = requests.get("https://ptsv3.com/t/tcore-test/post/")
+        url = "http://srv12.mikr.us:40154/data"
+
+        payload = [
+            {
+                "variable": "a",
+                "value": 222
+            }
+        ]
+        headers = {
+            "Content-Type": "application/json",
+            "device-token": "REPLACE"
+        }
+
+        r = requests.request("POST", url, json=payload, headers=headers)
+
         print("Response: ")
         print(r.text)
         r.close() # important!!!
