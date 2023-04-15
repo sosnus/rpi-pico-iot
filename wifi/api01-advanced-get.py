@@ -6,7 +6,7 @@ import machine
 try:
     import urequests as requests
 except ImportError:
-    print("ERROR! urequest not found!!!")
+    print("ERROR! urequest not found!!! - more: https://pypi.org/project/micropython-urequests/")
     import requests
 
 # GLOBAL_VARIABLES
@@ -22,21 +22,17 @@ def init():
 def loop():
     while True:
         r = requests.get("https://ptsv3.com/t/tcore-test/post/")
+        print("Response: ")
         print(r)
         print(r.content)
         print(r.text)
-        print(r.content)
-        # print(r.json())
-
+        print(r.json)
         # It's mandatory to close response objects as soon as you finished
         # working with them. On MicroPython platforms without full-fledged
         # OS, not doing so may lead to resource leaks and malfunction.
-        r.close()
-        led = Pin(1, Pin.OUT)
-        led.value(1) 
-        time.sleep_ms(500) 
-        led.value(0) 
-        time.sleep_ms(500)
+        r.close() # important!!!
+        print("WAIT...")
+        time.sleep_ms(3000)
       
 def connect_to_wifi(wlan = None, ssid = "", password = ""):
     #Connect to WLAN
@@ -46,14 +42,7 @@ def connect_to_wifi(wlan = None, ssid = "", password = ""):
         print('Waiting for connection...')
         time.sleep_ms(1000)
     print(wlan.ifconfig())
-
-try:
-    import urequests as requests
-except ImportError:
-    import requests
-
-
-
+    print("WiFi "+ ssid + " connected!")
     
 init()
 loop()
