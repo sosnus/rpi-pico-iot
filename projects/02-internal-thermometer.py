@@ -1,10 +1,12 @@
+# Based on: https://electrocredible.com/raspberry-pi-pico-temperature-sensor-tutorial/?fbclid=IwAR3prRpw7XrH1lviq8zzh_QrT2TAbJrC5_RvWQX-X1ERqMrsVs1xSaIEpdQ
 import time
 from time import ticks_ms, ticks_us, sleep 
 from machine import Pin, ADC
 
 
 # GLOBAL_VARIABLES
-ADC = machine.ADC(4) 
+ADC = machine.ADC(4) # connected to internal temperature sensor
+# DATASHEET: "The temperature sensor measures the Vbe voltage of a biased bipolar diode, connected to the fifth ADC channel (AINSEL=4)."
 
 def read_adc_vcc(adc):
     vcc = 3.3
@@ -25,5 +27,5 @@ while True:
     adc_voltage = read_adc_vcc(ADC)
     temp_celcius = adc_vcc2ceclius_temp(adc_voltage)
     temp_fahrenheit=celcius2farenheit(temp_celcius)
-    print("Temperature: {}°C {}°F".format(temp_celcius,temp_fahrenheit))
+    print("Temperature: {}°C".format(temp_celcius))
     time.sleep_ms(500)
