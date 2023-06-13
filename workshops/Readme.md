@@ -29,12 +29,12 @@ Steps:
 
 6. Click `Install`
 7. After a lot of seconds we see label `Done`. Now we must close all windows of Thonny and back to main window of this IDE
-8. Open `Tools`>`Options...` one more time - now You must see new Port COM on `Port` list:
+8. Open `Tools`>`Options...` one more time - now You see new Port COM on `Port` list:
 
 ![Alt text](./docs/img/image-4.png)
 
 9. Select this new port and press `OK`
-10. If everything is OK, You must see in console this text:
+10. If everything is OK, You can see in console this text:
 ```
 MicroPython v1.20.0 on 2023-04-26; Raspberry Pi Pico W with RP2040
 
@@ -44,13 +44,12 @@ Type "help()" for more information.
 ```
 ![Alt text](./docs/img/image-5.png) 
 
-11. It is time to connect everything together
-    1. Connect `Rpi Pico WH` with DFRobot shield, then connect led module to pin `GP2`
+11. It is time to connect everything together. Connect `Rpi Pico WH` with DFRobot shield, then connect led module to pin `GP2` (first headers on left side of board)
 ![Alt text](./docs/img/image-8.png)
 ![Alt text](./docs/img/image-7.png)
 
 12. Now we can write first program. Click on `+` ("Plus") symbol on top left corner of IDE
-13. Paste this snipet into editor:
+13. Paste this snippet into editor:
 ```Python
 from machine import Pin
 led = Pin(2, Pin.OUT) # we use GP2, becouse it is first port on headers
@@ -65,9 +64,9 @@ while True:
 14. And click `RUN` symbol:
 ![Alt text](./docs/img/image-6.png)
 
-15. led shoud blink with interval 0,5 seconds
+15. Led shoud blink with interval 0,5 seconds. If everything works, we can move on to the sensors.
 
-16. Connect sensor to `RPi Pico WH`, in this sample project, we use `DFRobot Analog Ambient Light Sensor V2.1` - we should connect this sensor to pin `GP27`
+16. Connect sensor to `RPi Pico WH`. In this sample project, we use `DFRobot Analog Ambient Light Sensor V2.1` - sensor should be connect to pin `GP27`
 
 ![Alt text](./docs/img/image-9.png)
 
@@ -98,14 +97,14 @@ while True:
 During first part we learn how to run program using `Thonny IDE` and how to read data from sensors. Now it is time to send data to the cloud!
 
 ### Part 2 a: Send data to Tago Core (from console)
-You can communicate with service `Tago Core` using REST API. If You need send data to cloud, You need only two variables:
-1. server address
-2. token
+You can communicate with service `Tago Core` using REST API. If You want send data to cloud, You need only two variables:
+1. `server address`
+2. `token`
 
-Only `Tago Core` administrator can add, change or remove devices. Ask about Your credential (token) during workshop. The training instructor will create the device for you and provide You with access data.
+Only `Tago Core` administrator can add, change or remove devices. Ask about Your credentials (token) during workshop. The training instructor will create the device for you and provide You with access data.
 ![Alt text](./docs/img/image-11.png)
 
-If You receive credentials, You can test connection using console program `cURL`
+If You receive credentials, You can test connection using console program `cURL`, but how to prepare request?
 
 `Tago Core` receives and returns data in `JSON` format. It is array with one or more variables. Fields `variable` and `value`.
 * `variable` should be `String`
@@ -123,8 +122,8 @@ EXAMPLE: If You want send data about temperature and pressure, You can send `JSO
     "value": 981.2
 }]
 ```
-And You have `token`: `74484bcb-923a-4a38-afaa-42cacd89f9fd`
-and `address`: `http://srv18.mikr.us:40083/data`
+You have `token`: `74484bcb-923a-4a38-afaa-42cacd89f9fd`
+and `address`: `http://srv18.mikr.us:40083/data` from `Tago Core` administrator.
 You can build `cURL` request:
 ``` Bash
 curl --request POST \
