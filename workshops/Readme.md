@@ -11,18 +11,28 @@
 ### Install bootloader
 Steps:
 1. Run `Thonny IDE`
+
 ![Alt text](./docs/img/image.png)
-2. Plug in `RPi Pico WH`
+
+2. Plug in `RPi Pico WH` to computer via cable USB micro
 3. Open `Tools`>`Options...`
+
 ![Alt text](./docs/img/image-3.png)
+
 4. Click `Install or update MicroPython`
+
 ![Alt text](./docs/img/image-1.png)
+
 5. Read instruction and select newest, stable version of bootloader
+
 ![Alt text](./docs/img/image-2.png)
+
 6. Click `Install`
 7. After a lot of seconds we see label `Done`. Now we must close all windows of Thonny and back to main window of this IDE
 8. Open `Tools`>`Options...` one more time - now You must see new Port COM on `Port` list:
+
 ![Alt text](./docs/img/image-4.png)
+
 9. Select this new port and press `OK`
 10. If everything is OK, You must see in console this text:
 ```
@@ -34,8 +44,13 @@ Type "help()" for more information.
 ```
 ![Alt text](./docs/img/image-5.png) 
 
-11. Now we can write first program. Click on `+` ("Plus") symbol on top left corner of IDE
-12. Paste this snipet into editor:
+11. It is time to connect everything together
+    1. Connect `Rpi Pico WH` with DFRobot shield, then connect led module to pin `GP2`
+![Alt text](./docs/img/image-8.png)
+![Alt text](./docs/img/image-7.png)
+
+12. Now we can write first program. Click on `+` ("Plus") symbol on top left corner of IDE
+13. Paste this snipet into editor:
 ```Python
 from machine import Pin
 led = Pin(2, Pin.OUT) # we use GP2, becouse it is first port on headers
@@ -46,9 +61,11 @@ while True:
   led.value(0) 
   time.sleep_ms(500)
 ```
-![Alt text](./docs/img/image-7.png)
-13. And click `RUN` symbol:
+
+14. And click `RUN` symbol:
 ![Alt text](./docs/img/image-6.png)
+
+15. led shoud blink with interval 0,5 seconds
 
 ### How to send data to Tago Core?
 
