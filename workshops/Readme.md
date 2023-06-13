@@ -11,18 +11,18 @@
 ### Install bootloader
 Steps:
 1. Run `Thonny IDE`
-![Alt text](image.png)
+![Alt text](./docs/img/image.png)
 2. Plug in `RPi Pico WH`
 3. Open `Tools`>`Options...`
-![Alt text](image-3.png)
+![Alt text](./docs/img/image-3.png)
 4. Click `Install or update MicroPython`
-![Alt text](image-1.png)
+![Alt text](./docs/img/image-1.png)
 5. Read instruction and select newest, stable version of bootloader
-![Alt text](image-2.png)
+![Alt text](./docs/img/image-2.png)
 6. Click `Install`
 7. After a lot of seconds we see label `Done`. Now we must close all windows of Thonny and back to main window of this IDE
 8. Open `Tools`>`Options...` one more time - now You must see new Port COM on `Port` list:
-![Alt text](image-4.png)
+![Alt text](./docs/img/image-4.png)
 9. Select this new port and press `OK`
 10. If everything is OK, You must see in console this text:
 ```
@@ -32,7 +32,7 @@ Type "help()" for more information.
 
 >>> 
 ```
-![Alt text](image-5.png) 
+![Alt text](./docs/img/image-5.png) 
 
 11. Now we can write first program. Click on `+` ("Plus") symbol on top left corner of IDE
 12. Paste this snipet into editor:
@@ -46,9 +46,9 @@ while True:
   led.value(0) 
   time.sleep_ms(500)
 ```
-![Alt text](image-7.png)
+![Alt text](./docs/img/image-7.png)
 13. And click `RUN` symbol:
-![Alt text](image-6.png)
+![Alt text](./docs/img/image-6.png)
 
 ### How to send data to Tago Core?
 
