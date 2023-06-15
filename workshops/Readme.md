@@ -333,15 +333,17 @@ init()
 loop()
 ```
 
-Then we can add real sensor, and replace `payload` field from previous code with value from temperature sensor:
+Then we can add real sensor, and replace `payload` field from previous code with value from temperature sensor. Pay attention to line codes after lines `# NEW!!! description`:
 
 ``` Python
 import network
 import socket
-import time
-from machine import Pin
-import machine
 import urequests as requests
+import machine
+import time
+from machine import Pin, PWM
+# NEW!!! Sensor initialization
+adc = machine.ADC(0)
 
 # GLOBAL_VARIABLES
 ssid = "YOUR-WIFI-SSID"
@@ -355,12 +357,19 @@ def init():
     
 def loop():
     while True:
+        # NEW!!! Here we read data from sensor
+        rawAdc = adc.read_u16()
+        temp=(rawAdc/65535.0)* 3300/10.24
+        print("temp=",temp,"C")
+        
+        
         url = "http://srv18.mikr.us:40083/data"
 
+        # NEW!!! variable temp is used inside payload
         payload = [
             {
                 "variable": "temperatureEmulator",
-                "value": 22.2
+                "value": temp
             }
         ]
         headers = {
@@ -392,6 +401,13 @@ loop()
 // TODO:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+### This is the end...
+Thank You for take part in this workshop, now You have some time to think about Smart Building Hackathon, there are a lot of auxiliary questions, and sample responses:
+* What do you want to check/measure?
+    * temperature
+    * humidity
+    * human presence
+* What sensors You can use?
 
 
 
