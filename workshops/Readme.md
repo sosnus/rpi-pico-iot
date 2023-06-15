@@ -409,10 +409,66 @@ Using Grafana You can visualize data using a lot of widgets. In our case, we foc
 ### How to prepare chart?
 If we want display data, we need prepare query to data source. In Our case, data source based on MySQL, so we can write request using SQL language.
 
+### Grafana sample 1: Table
+![Alt text](image-2.png)
+``` sql
+SELECT
+  time AS "time",
+  value,
+  variable
+FROM 61567a20bc407a616e7368c0
+WHERE
+  $__timeFilter(time)
+ORDER BY time
+```
+Where:
+* `61567a20bc407a616e7368c0` - ID of sensor
 
+### Grafana sample 2: Simple Time Series Chart
 ![Alt text](image.png)
+``` sql
+SELECT
+  time AS "time",
+  cast(value as double) AS metric
+FROM 61567a20bc407a616e7368c0
+WHERE
+  $__timeFilter(time) AND variable = 'temperature'
+ORDER BY time
+```
+Where:
+* `61567a20bc407a616e7368c0` - ID of sensor
+* `cast(value as double) AS metric` - value to display (must be cast to numeric!)
+* `WHERE variable = 'temperature'` - remove series different than `temperature`
 
+### Grafana sample 3: Advanced Time Series Chart
+![Alt text](image-3.png)
+Serie A:
+``` sql
+SELECT
+  time AS "time",
+  cast(value as double) AS metric
+FROM 61567a20bc407a616e7368c0
+WHERE
+  $__timeFilter(time) AND variable = 'temperature'
+ORDER BY time
+```
+Serie B:
+``` sql
+SELECT
+  time AS "time",
+  cast(value as double) AS metric
+FROM 61567a20bc407a616e7368c0
+WHERE
+  $__timeFilter(time) AND variable = 'pressure'
+ORDER BY time
+```
+And some overrides (force Unit, change color, add second Axis Y)
+![Alt text](image-4.png)
 
+After creating these widgets, we see a lot of charts and tables on `Dashboard`:
+![Alt text](image-5.png)
+
+Using this dashboard we can visualize data from IoT sensors without create custom frontend application. Grafana take care about: charts, widgets, dashboards, interval refres, auto scaling, user management, and more.
 
 ### This is the end...
 Thank You for take part in this workshop, now You have some time to think about Smart Building Hackathon, there are a lot of auxiliary questions, and sample responses:
@@ -429,15 +485,3 @@ Thank You for take part in this workshop, now You have some time to think about 
     * Line chart, Bar chart
     * Text messages (Discord Bot?)
 
-
-
-
-
-### How to read data from Tago Core?
-
-#### Read data from Tago Core using Grafana
-
-
-#### Read data from Tago Core using Rest API
-https://help.tago.io/portal/en/kb/articles/36-getting-data
-https://help.tago.io/portal/en/kb/articles/31-api-overview
