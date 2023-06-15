@@ -150,6 +150,8 @@ We receive response:
 ```
 So `Tago Core` write our 2 variables to database.
 
+`IMPORTANT!` If You do not have `cURL` on Your computer, You can use cURL online, for example: `https://reqbin.com/curl`
+
 Now we can read Our data using `GET` request:
 ``` Bash
 curl --request GET \
@@ -208,8 +210,122 @@ In console this message is very hard to read, but If we format this like JSON, w
 
 We will deal with data processing later, now it's time to do it using `Raspberry Pico WH`
 
-### Part 2 b: Send data to Tago Core (from Rpi Pico)?
+## Part 2 b: Send data to Tago Core (from Rpi Pico)?
+We know how to use `RPi Pico WH` and how to do request to `Tago Core` REST API - it is time to merge this! But first, we need connect our device to WiFi network and test connection.
 
+There is simplest way to test WiFi connection and access to Internet:
+
+``` Python
+import network
+import time
+import urequests as requests
+
+# GLOBAL_VARIABLES
+ssid = "TP-Link_0A51"
+password = "11111111"
+
+wlan = None
+
+def init():
+    wlan = network.WLAN(network.STA_IF)
+    connect_to_wifi(wlan,ssid, password)
+    
+def loop():
+    while True:
+        r = requests.get("https://raw.githubusercontent.com/sosnus/rpi-pico/main/workshops/docs/misc/api-test.txt")
+        print("Response: ")
+        print(r.text)
+        r.close() # important!!! Without it Our program should do not work correctly
+        print("WAIT...")
+        time.sleep_ms(3000)
+      
+def connect_to_wifi(wlan = None, ssid = "", password = ""):
+    wlan.active(True)
+    wlan.connect(ssid, password)
+    while wlan.isconnected() == False:
+        print('Waiting for connection...')
+        time.sleep_ms(1000)
+    print("WiFi "+ ssid + " connected!")
+    
+init()
+loop()
+```
+
+In previous part we learn how to send data to Tago using cURL, now we do same thing, but from `Raspberry Pi Pico WH` using `MicroPython` script. So If we want execute this request:
+``` Bash
+curl --request POST \
+  --url http://srv18.mikr.us:40083/data \
+  --header 'Content-Type: application/json' \
+  --header 'device-token: 74484bcb-923a-4a38-afaa-42cacd89f9fd' \
+  --data '[{
+    "variable": "temperature",
+    "value": 22.2
+},
+{
+    "variable": "pressure",
+    "value": 981.2
+}]'
+```
+
+Using `MicroPython`, we can use this code:
+``` Python
+import network
+import socket
+import time
+from machine import Pin
+import machine
+import urequests as requests
+
+# GLOBAL_VARIABLES
+ssid = "YOUR-WIFI-SSID"
+password = "YOUR-WIFI-PASSWORD"
+
+wlan = None
+
+def init():
+    wlan = network.WLAN(network.STA_IF)
+    connect_to_wifi(wlan,ssid, password)
+    
+def loop():
+    while True:
+        url = "http://srv18.mikr.us:40083/data"
+
+        payload = [
+            {
+                "variable": "temperatureEmulator",
+                "value": 22.2
+            }
+        ]
+        headers = {
+            "Content-Type": "application/json",
+            "device-token": "74484bcb-923a-4a38-afaa-42cacd89f9fd"
+        }
+
+        r = requests.request("POST", url, json=payload, headers=headers)
+
+        print("Response: ")
+        print(r.text)
+        r.close() # important!!!
+        print("WAIT...")
+        time.sleep_ms(3000)
+      
+def connect_to_wifi(wlan = None, ssid = "", password = ""):
+    wlan.active(True)
+    wlan.connect(ssid, password)
+    while wlan.isconnected() == False:
+        print('Waiting for connection...')
+        time.sleep_ms(1000)
+    print("WiFi "+ ssid + " connected!")
+    
+init()
+loop()
+```
+
+Then we can add real sensor, and replace `payload` field from previous code with value from temperature sensor:
+
+
+
+// TODO:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
