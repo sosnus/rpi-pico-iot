@@ -408,6 +408,13 @@ Thank You for take part in this workshop, now You have some time to think about 
     * humidity
     * human presence
 * What sensors You can use?
+    * LM35
+    * BME280
+    * PIR Sensor
+* What is the best way to visualize it?
+    * Table
+    * Line chart, Bar chart
+    * Text messages (Discord Bot?)
 
 
 
