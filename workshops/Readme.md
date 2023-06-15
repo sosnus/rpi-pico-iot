@@ -401,6 +401,17 @@ loop()
 
 
 ## Part 3: visualization
+The data is already stored in the cloud, but how to read and visualize them? Let's do it using Grafana!
+
+Using Grafana You can visualize data using a lot of widgets. In our case, we focus on `Time series` and `Table`. Table is easiest way to show data, but `Time series` is better to numeric dataset. Below You see a lot of different widgets (line charts, table, maps and others).
+
+![Alt text](image-1.png)
+### How to prepare chart?
+If we want display data, we need prepare query to data source. In Our case, data source based on MySQL, so we can write request using SQL language.
+
+
+![Alt text](image.png)
+
 
 
 ### This is the end...
