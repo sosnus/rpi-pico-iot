@@ -397,8 +397,10 @@ init()
 loop()
 ```
 
+> ❗❗❗`IMPORTANT!` - delay 3000 milliseconds is good interval for test, but if You want run application for more than a lot of minutes, please consider change interval, for example to 5 minutes (300 000 milliseconds)
 
-// TODO:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+## Part 3: visualization
 
 
 ### This is the end...
